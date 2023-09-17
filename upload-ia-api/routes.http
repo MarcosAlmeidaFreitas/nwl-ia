@@ -1,0 +1,27 @@
+#@name get-prompts
+GET http://localhost:3333/prompts
+
+###
+
+#@name upload
+POST http://localhost:3333/videos
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="example.mp3"
+Content-Type: audio/mpeg
+
+
+< ./example.mp3
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+
+#@name create-transcription
+POST http://localhost:3333/videos/a0cb9519-3971-407a-9f66-2414d6c1f3c3/transcription
+Content-Type: application/json
+
+{
+  "prompt": "Tu ratiou, 3 conchas de galinha, chuchu ao molho branco"
+}
